@@ -1,0 +1,96 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.product-content {
+    text-transform: capitalize;
+}
+
+.card button {
+    display: inline-block;
+    // background-color: #e76f51;
+    border: unset;
+    color: #000000;
+    outline: none;
+    cursor: pointer;
+    padding: .1rem;
+    text-transform: capitalize;
+    width: 50px;
+    // margin: 1rem 1rem 1rem 0;
+    border-radius: 2px;
+    box-shadow: (0, 0, 0, 0.2) 0px 1px 2px 0px;
+    outline: #000000;
+}
+
+.card .add-to-cart {
+    background-color: #f4a261;
+}
+
+.product-image {
+    // height: 250px;
+    width: 200px;
+    // position: relative;
+    white-space: nowrap;
+    text-align: center;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+}
+
+//  responsive image 
+
+.product-image img {
+    max-width: 100%;
+    width: calc(100vw);
+    max-height: 100%;
+    // position: absolute;
+}
+
+.count {
+    color: #000000;
+}
+.product-quantity {
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 321px) {
+
+    .card-list {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding-top: 5rem;
+    }
+
+    .card {
+
+        flex: 1 1 80%;
+        border-radius: 2px;
+        box-shadow: 0 3px 3px rgba(160, 153, 153, 0.12), 0 1px 2px rgba(171, 165, 165, 0.24);
+        background-color: #fff;
+        margin-right: 1rem;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card.price-details {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 40%;
+        max-height: 320px;
+        position: sticky;
+        top:0;
+    }
+
+    .price-content {
+        display: flex;
+        justify-content: space-between;
+    }
+}

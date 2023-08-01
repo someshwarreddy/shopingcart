@@ -1,0 +1,17 @@
+<div class="container">
+    <ng-continer *ngIf="product | search:searchTerm as result">
+        <div class="product-list">
+            <div class="card" *ngFor="let product of result" [routerLink]="['/product', product.id]">
+                <div class="product-image">
+                    <img src="{{product?.image}}" alt="product image">
+                </div>
+                <div class="product-content">
+                    <p>{{product?.title}}</p>
+                    <p>{{product?.category}}</p>
+                    <!-- <p>{{product.description}}</p> -->
+                    <p>₹{{product?.price}}</p>
+                </div>
+            </div>
+        </div>
+    </ng-continer>
+</div>

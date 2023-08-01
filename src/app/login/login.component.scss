@@ -1,0 +1,71 @@
+.profileform .button {
+    display: inline-block;
+    background-color: #e76f51;
+    border: unset;
+    color: #fff;
+    outline: none;
+    padding: .5rem;
+    text-transform: capitalize;
+    width: 100%;
+    margin: 1rem 1rem 1rem 0;
+    border-radius: 2px;
+    box-shadow: (0, 0, 0, 0.2) 0px 1px 2px 0px;
+    outline: #e76f51;
+    cursor: pointer;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08);
+    padding: 1rem;
+    height: calc(100vh - 100px);
+    text-transform: capitalize;
+    width: 100%;
+}
+
+.profileform,
+.login-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    padding: 1rem;
+}
+
+.login-text {
+    background-color: #2a9d8f;
+    color: #fff;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.profileform {
+    position: relative;
+}
+
+.newuser {
+    position: absolute;
+    bottom: 0;
+    text-decoration: none;
+    color: #2171f2;
+}
+
+input::placeholder {
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.login-heading {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 767px) {
+    .form-container {
+        flex-direction: row
+    }
+
+    .newuser {
+        text-align: center;
+        left: 10%
+    }
+}

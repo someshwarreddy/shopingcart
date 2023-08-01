@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="form-container">
+        <div class="login-text">
+            <h2 class="login-heading">If you're new here!</h2>
+            <p>Sign up with your mobile number to get started</p>
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profileform">
+            <label for="firstName">firstName: </label>
+            <input id="firstName" type="text" formControlName="firstName" placeholder="firstName">
+            <label for="lastName">lastName: </label>
+            <input id="lastName" type="password" formControlName="lastName" placeholder="lastName">
+            <label for="email">email/mobile: </label>
+            <input id="email" type="text" formControlName="firstName" placeholder="email/mobilenumber">
+            <label for="password">Password: </label>
+            <input id="password" type="password" formControlName="lastName" placeholder="password">
+            <button type="submit" class="button" [disabled]="!profileForm.valid">Submit</button>
+            <a [routerLink]="'[/login]'" class="newuser">already have account login</a>
+        </form>
+    </div>
+</div>

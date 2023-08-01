@@ -1,0 +1,17 @@
+<div class="container">
+    <ng-continer >
+        <div class="card" *ngIf="product">
+            <div class="product-image">
+                <img src="{{product?.image}}" alt="productimage">
+            </div>
+            <div class="product-content">
+                <p>{{product?.title}}</p>
+                <p>{{product?.description}}</p>
+                <p>{{product?.category}}</p>
+                <p><span>price:</span>₹{{product?.price}}</p>
+                <button type="button" class="add-to-cart" (click)="addTocart(product)">Addtocart</button>
+                <button class="buy">Buy</button>
+            </div>
+        </div>
+    </ng-continer>
+</div>

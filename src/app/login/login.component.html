@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="form-container">
+        <div class="login-text">
+            <h2 class="login-heading">Login</h2>
+            <p>login with email/mobilenumber and password to Get access to your saved Orders</p>
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profileform">
+            <label for="email">email/mobile: </label>
+            <input id="email" type="text" formControlName="firstName" placeholder="email/mobilenumber">
+            <label for="password">Password: </label>
+            <input id="password" type="password" formControlName="lastName" placeholder="password">
+            <button type="submit" class="button" [disabled]="!profileForm.valid">Submit</button>
+            <a [routerLink]="'[/signup]'" class="newuser">New user Create account</a>
+        </form>
+    </div>
+</div>

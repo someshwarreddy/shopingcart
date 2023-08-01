@@ -1,0 +1,29 @@
+<header class="header-full">
+    <Nav class="container ">
+        <ul class="menu">
+            <li class=" nav-list"><a id="logo" [routerLink]="['/home']">ecomm</a></li>
+            <li class="search-bar nav-list">
+                <form class="search-form">
+                    <div class="search-form-content">
+                        <span class="search-icon"> </span>
+                        <label for="site-search"></label>
+                        <input type="search" id="site-search" (keyup)="onChangeEvent($event)" [(ngModel)]="searchTerm" name="serchvalue" placeholder="search products">
+                    </div>
+                </form>
+            </li>
+            <li class="nav-list login-item">
+                <a href="#" class="login-link">login / signup</a>
+                <div class="login-dropdown">
+                    <ul class="login-link-items">
+                        <li class="customer-signup"><span>new customer?</span> <a [routerLink]="['/signup']" class="navlink"> signup</a>
+                        </li>
+                        <li class="profile"><a [routerLink]="['/login']" class="navlink">profile</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-list">
+               <a [routerLink]="['/cart']" class="cart">cart</a> 
+            </li>
+        </ul>
+    </Nav>
+</header>
