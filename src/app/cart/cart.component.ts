@@ -52,10 +52,8 @@ export class CartComponent implements OnInit {
   }
 
   increment(price: number) {
-
     this.cartItemList.map((a: any, index: any) => {
       if (price === a.price) {
-        debugger
         this.count = this.cartService.increment()
 
       }

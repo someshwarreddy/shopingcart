@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { ecomm, cart } from './ecomm.model';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 @Injectable({
   providedIn: 'root'
 })
 export class CartserviceService {
   public count: number = 1;
-
+  public isCount: number;
+  public productList = new BehaviorSubject<any>([]);
   items: ecomm[] = [];
   /* . . . */
 
   constructor() { }
-
+  getProducts(){
+    return this.productList.asObservable();
+  }
 
   addToCart(product: ecomm) {
     this.items.push(product);
+    this.productList.next(this.items);
     this.getTotal()
   }
 
@@ -33,7 +38,7 @@ export class CartserviceService {
 
   increment() {
     this.count++
-   
+
     return this.count;
   }
   decrement() {

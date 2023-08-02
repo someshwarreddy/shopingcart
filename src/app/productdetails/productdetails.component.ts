@@ -33,6 +33,6 @@ export class ProductdetailsComponent implements OnInit {
   addTocart(productcart: any) {
     this.cartService.addToCart(productcart);
     window.alert('Your product has been added to the cart!')
-    this.router.navigate(['cart']);
+    // this.router.navigate(['cart']);
   }
 }

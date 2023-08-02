@@ -53,10 +53,19 @@
 .count {
     color: #000000;
 }
+
 .product-quantity {
     display: flex;
     justify-content: center;
 }
+
+input.count {
+    width: 40px;
+    text-align: center;
+    margin: 0 .5rem;
+    padding-left: 10px;
+}
+
 @media (min-width: 321px) {
 
     .card-list {
@@ -86,7 +95,7 @@
         flex: 1 1 40%;
         max-height: 320px;
         position: sticky;
-        top:0;
+        top: 0;
     }
 
     .price-content {

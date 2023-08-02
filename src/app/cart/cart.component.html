@@ -9,7 +9,7 @@
                     <div class="product-quantity">
                         <button class="decrement" [disabled]="countDisable"
                             (click)="decrement(product?.price)">-</button>
-                        <input class="count" [(ngModel)]="count" [value]="count">
+                        <input type ="number" class="count" [(ngModel)]="count" [value]="count">
                         <button class="increment" (click)="increment(product?.price)">+</button>
                     </div>
                 </div>
