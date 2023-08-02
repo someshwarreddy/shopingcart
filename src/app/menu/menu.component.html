@@ -22,7 +22,7 @@
                 </div>
             </li>
             <li class="nav-list">
-               <a [routerLink]="['/cart']" class="cart">cart : {{cartCount}}</a> 
+               <a  (click)="goToCart()" class="cart">cart <span class="badge" *ngIf="cartCount > 0"> {{cartCount}}</span></a> 
             </li>
         </ul>
     </Nav>

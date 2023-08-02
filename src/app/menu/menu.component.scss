@@ -148,6 +148,22 @@
 }
 .cart {
     color:#ffffff;
+    position: relative;
+ 
+}
+.badge {
+    position: absolute;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    color: #ffffff;
+    font-size: 10px;
+    background-color: rgb(247, 13, 13);
+    // bottom: 0;
+    // right:0;
+    left:32px;
+    top:1px;
+    text-align: center;
 }
 
 .login-link-items .profile {

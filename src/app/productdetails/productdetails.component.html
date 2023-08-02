@@ -10,7 +10,7 @@
                 <p>{{product?.category}}</p>
                 <p><span>price:</span>₹{{product?.price}}</p>
                 <button type="button" class="add-to-cart" (click)="addTocart(product)">Addtocart</button>
-                <button class="buy">Buy</button>
+                <button class="buy" [routerLink]="['/home']">shopmore</button>
             </div>
         </div>
     </ng-continer>
