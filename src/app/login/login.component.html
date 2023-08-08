@@ -7,9 +7,9 @@
             </div>
             <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profileform">
                 <label for="email">email/mobile: </label>
-                <input id="email" type="text" formControlName="firstName" placeholder="email/mobilenumber">
+                <input id="email" type="text" formControlName="username" placeholder="email/mobilenumber">
                 <label for="password">Password: </label>
-                <input id="password" type="password" formControlName="lastName" placeholder="password">
+                <input id="password" type="password" formControlName="password" placeholder="password">
                 <button type="submit" class="button" [disabled]="!profileForm.valid">Submit</button>
                 <a [routerLink]="'[/signup]'" class="newuser">New user Create account</a>
             </form>

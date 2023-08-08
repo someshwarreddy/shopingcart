@@ -12,8 +12,9 @@
                 </form>
             </li>
             <li class="nav-list login-item">
-                <a href="#" class="login-link">login / signup</a>
-                <div class="login-dropdown">
+                <a href="#" class="login-link" *ngIf="!isLoggin"> login / signup</a>
+                <a href="#" class="login-link" *ngIf="isLoggin" (click)="logout()"> logout</a>
+                <div class="login-dropdown" *ngIf="!isLoggin">
                     <ul class="login-link-items">
                         <li class="customer-signup"><span>new customer?</span> <a [routerLink]="['/signup']" class="navlink"> signup</a>
                         </li>
