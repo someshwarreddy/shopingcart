@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -17,7 +17,13 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { productReducer } from './store/product.reducers';
+import { AuthInterceptor } from './services/auth.interceptor';
 
+
+const moduleServices = [
+
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +42,17 @@ import { productReducer } from './store/product.reducers';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ecomm:ecommReducer,
-    productid: productReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, 
+    StoreModule.forRoot({
+      ecomm: ecommReducer,
+      productid: productReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
       //logOnly: !isDevMode()
-     })
+    })
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [...moduleServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

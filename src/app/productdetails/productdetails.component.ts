@@ -31,6 +31,8 @@ export class ProductdetailsComponent implements OnInit {
   }
 
   addTocart(productcart: any) {
+    let pair = { quantity: "1" };
+    productcart = { ...productcart, ...pair };
     this.cartService.addToCart(productcart);
     window.alert('Your product has been added to the cart!')
     // this.router.navigate(['cart']);

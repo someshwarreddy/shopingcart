@@ -13,11 +13,11 @@ import { CartserviceService } from '../cartservice.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  public count: number;
-
+  public count: number = 1;
   public countDisable: boolean = false;
   public total = this.cartService.getTotal()
   public cartItemList = this.cartService.getItems();
+  public cartCount: any = [];
   constructor(private route: ActivatedRoute,
     private router: Router,
     private store: Store,
@@ -26,17 +26,18 @@ export class CartComponent implements OnInit {
   }
   ngOnInit(): void {
     // const id = Number(this.route.snapshot.paramMap.get('id'))
-    // const id = localStorage.getItem("id")
-    // console.log(localStorage.getItem("id"));
+
     // this.ecommService.getCart(id).subscribe((data: cart[]) => {
     //   this.cartproduct = data;
-    //   console.log(this.cartproduct)
+    //   
     // })
     // this.ecommService.getProduct(id).subscribe((ecomm) => {
     //   this.cartItemList.push(ecomm);
-    //   console.log(this.cartItemList)
+    //  
     // })
-
+    if (this.count === 1) {
+      this.countDisable = true;
+    }
   }
 
   removeItem(product: any) {
@@ -48,24 +49,20 @@ export class CartComponent implements OnInit {
   }
   clearCart() {
     this.cartItemList = []
-
   }
 
-  increment(price: number) {
-    this.cartItemList.map((a: any, index: any) => {
-      if (price === a.price) {
-        this.count = this.cartService.increment()
-
-      }
-    })
+  increment(price: number, i: number) {
+    this.countDisable = false;
+    this.count = this.cartService.increment()
+    this.cartItemList[i].quantity = this.count;
     if (this.count > 1) {
-      this.countDisable = false;
+
       this.total += price;
     }
   }
-  decrement(price: number) {
+  decrement(price: number, i: number) {
     this.count = this.cartService.decrement();
-
+    this.cartItemList[i].quantity = this.count;
     if (this.count === 1) {
       this.countDisable = true;
       this.total -= price;

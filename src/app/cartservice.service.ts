@@ -28,11 +28,10 @@ export class CartserviceService {
   getTotal(): number {
     let total = 0;
     this.items.map((a: any) => {
-      console.log(a)
+   
       total += a.price;
 
     })
-    console.log(total)
     return total;
   }
 

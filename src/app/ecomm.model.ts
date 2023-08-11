@@ -4,7 +4,8 @@ export interface ecomm {
   price: number,
   category: string,
   description: string,
-  image: string
+  image: string,
+  quantity:number
 }
 
 export interface cart {

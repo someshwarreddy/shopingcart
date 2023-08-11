@@ -73,7 +73,7 @@ export class AuthService {
     localStorage.setItem(this.storageTokenKey, token);
   }
 
-  private getToken(): string {
+   getToken(): string {
     return localStorage.getItem(this.storageTokenKey);
   }
 

@@ -24,7 +24,7 @@ export class LoginComponent {
         .subscribe(
           result => {
             if (result) {
-              this.router.navigateByUrl('/');
+              this.router.navigateByUrl('/home');
             } else {
               this.error = 'Invalid username or password!';
             }

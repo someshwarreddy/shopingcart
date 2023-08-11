@@ -1,16 +1,16 @@
 <div class="container">
     <div class="card-list" *ngIf="cartItemList.length>0">
         <div class="card">
-            <div class="card-content" *ngFor="let product of cartItemList">
+            <div class="card-content" *ngFor="let product of cartItemList ; index as i">
                 <div class="image-box">
                     <div class="product-image">
                         <img src="{{product?.image}}" alt="productimage">
                     </div>
                     <div class="product-quantity">
                         <button class="decrement" [disabled]="countDisable"
-                            (click)="decrement(product?.price)">-</button>
-                        <input type ="number" class="count" [(ngModel)]="count" [value]="count">
-                        <button class="increment" (click)="increment(product?.price)">+</button>
+                            (click)="decrement(product?.price,i)">-</button>
+                        <input type ="text" class="count"  value={{product?.quantity}}>
+                        <button class="increment" (click)="increment(product?.price, i)">+</button>
                     </div>
                 </div>
                 <div class="product-content">
