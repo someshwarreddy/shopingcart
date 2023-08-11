@@ -14,7 +14,6 @@ import { CartserviceService } from '../cartservice.service';
 })
 export class CartComponent implements OnInit {
   public count: number = 1;
-  public countDisable: boolean = false;
   public total = this.cartService.getTotal()
   public cartItemList = this.cartService.getItems();
   public cartCount: any = [];
@@ -35,36 +34,40 @@ export class CartComponent implements OnInit {
     //   this.cartItemList.push(ecomm);
     //  
     // })
-    if (this.count === 1) {
-      this.countDisable = true;
-    }
+
   }
 
   removeItem(product: any) {
-    this.cartItemList.map((a: any, index: any) => {
-      if (product.id === a.id) {
-        this.cartItemList.splice(index, 1);
-      }
-    })
+    let confirmRemove = 'Are you sure you want to remove this item from cart?'
+    let result = window.confirm(confirmRemove);
+    if (result) {
+      this.cartItemList.map((a: any, index: any) => {
+        if (product.id === a.id) {
+          this.cartItemList.splice(index, 1);
+        }
+      })
+      this.total -= product.price * product.quantity;
+    }
   }
   clearCart() {
     this.cartItemList = []
   }
 
-  increment(price: number, i: number) {
-    this.countDisable = false;
-    this.count = this.cartService.increment()
+  increment(quantity: number, price: number, i: number) {
+    this.count = quantity + 1;
     this.cartItemList[i].quantity = this.count;
+    if (this.cartItemList[i].quantity === 1) {
+      this.count = 1;
+    }
     if (this.count > 1) {
-
       this.total += price;
     }
   }
-  decrement(price: number, i: number) {
-    this.count = this.cartService.decrement();
+
+  decrement(quantity: number, price: number, i: number) {
+    this.count = quantity - 1;
     this.cartItemList[i].quantity = this.count;
     if (this.count === 1) {
-      this.countDisable = true;
       this.total -= price;
     }
     else {

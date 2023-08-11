@@ -6,6 +6,26 @@
     margin-top: 2rem;
     padding: 1rem;
 }
+.empty-cart button {
+    display: inline-block;
+    background-color: #e76f51;
+    border: unset;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    padding: .5rem;
+    text-transform: capitalize;
+    width: 100px;
+    margin: 1rem 1rem 1rem 0;
+    border-radius: 2px;
+    box-shadow: (0, 0, 0, 0.2) 0px 1px 2px 0px;
+    outline: #e76f51;
+}
+.empty-cart {
+    display: grid;
+    place-items: center;
+    height: calc(100vh - 200px);
+}
 
 .product-content {
     text-transform: capitalize;

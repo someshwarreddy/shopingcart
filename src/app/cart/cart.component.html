@@ -1,4 +1,7 @@
 <div class="container">
+    <div  class = "empty-cart" *ngIf="cartItemList.length === 0">
+        <span>your cart is empty   <button class="buy" [routerLink]="['/home']">shopnow</button></span>
+    </div>
     <div class="card-list" *ngIf="cartItemList.length>0">
         <div class="card">
             <div class="card-content" *ngFor="let product of cartItemList ; index as i">
@@ -7,10 +10,10 @@
                         <img src="{{product?.image}}" alt="productimage">
                     </div>
                     <div class="product-quantity">
-                        <button class="decrement" [disabled]="countDisable"
-                            (click)="decrement(product?.price,i)">-</button>
+                        <button class="decrement" [disabled]="product?.quantity === 1"
+                            (click)="decrement(product?.quantity,product?.price,i)">-</button>
                         <input type ="text" class="count"  value={{product?.quantity}}>
-                        <button class="increment" (click)="increment(product?.price, i)">+</button>
+                        <button class="increment" (click)="increment(product?.quantity,product?.price, i)">+</button>
                     </div>
                 </div>
                 <div class="product-content">
@@ -24,10 +27,10 @@
         </div>
         <div class="card price-details">
             <h2>price details</h2>
-            <div class="price-content"><span>price:</span><span>₹{{total}}</span></div>
+            <div class="price-content"><span>price:</span><span>₹{{total | number}}</span></div>
             <div class="price-content"><span>Discount:</span><span>₹00000</span></div>
             <div class="price-content"><span>Delivery Charges:</span><span>free</span></div>
-            <div class="price-content"><span>Total Amount:</span><span>₹{{total}}</span></div>
+            <div class="price-content"><span>Total Amount:</span><span>₹{{total | number}}</span></div>
 
         </div>
     </div>
